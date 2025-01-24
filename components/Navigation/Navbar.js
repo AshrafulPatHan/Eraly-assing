@@ -33,14 +33,14 @@ const Navbar = () => {
                             className="w-[35px] md:w-[40px] xl:w-[50px]"
                         />
                         <h4 className="text-xl font-medium">
-                            Shojon houladar
+                            blog viewer
                         </h4>
                     </div>
                     {/* desktop /tav vu */}
                     <div className="hidden lg:flex lg:flex-row items-center text-xl font-light gap-5">
                         <Link href="/">Home</Link>
-                        <Link href="/">About Me</Link>
-                        <Link href="/">Contact</Link>
+                        <Link href="/">About As</Link>
+                        <Link href="/profile">Profile</Link>
                         <div>
                             {user ? (
                                 <div className="flex flex-row items-center gap-1 md:gap-2">

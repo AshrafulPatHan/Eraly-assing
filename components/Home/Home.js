@@ -1,34 +1,47 @@
-"use client"
-import React from 'react';
-import { Button, Card, Image, Text } from "@chakra-ui/react"
+"use client";
 
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 
 const Home = () => {
+    const [posts, setPosts] = useState([]);
+    const router = useRouter();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const data = await res.json();
+            setPosts(data);
+        };
+        fetchData();
+    }, []);
+
+    const handleViewDetails = (id) => {
+        router.push(`/blog/${id}`); 
+    };
+
     return (
-        <div className="flex flex-col items-center">
-            hello
-            <Card.Root maxW="sm" overflow="hidden">
-            <Image
-                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                alt="Green double couch with wooden legs"
-            />
-            <Card.Body gap="2">
-                <Card.Title>Living room Sofa</Card.Title>
-                <Card.Description>
-                This sofa is perfect for modern tropical spaces, baroque inspired
-                spaces.
-                </Card.Description>
-                <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
-                $450
-                </Text>
-            </Card.Body>
-            <Card.Footer gap="2">
-                <Button variant="solid">Buy now</Button>
-                <Button variant="ghost">Add to cart</Button>
-            </Card.Footer>
-            </Card.Root>
-    </div>
+        <div className="flex flex-col">
+            <div className="grid grid-cols-1 xl:grid-cols-3 2xl:grid-cols-4 gap-3 mb-7 mx-3">
+                {posts.map((post) => (
+                    <div className="mx-auto text-white" key={post.id}>
+                        <div className="w-[300px] lg:w-[400px] 2xl:w-[20vw] h-[200px] p-4 border-2 border-neutral-800">
+                            <div className="flex flex-col text-center items-center">
+                                <p className="text-2xl">Title:</p>
+                                <p>{post.title}</p>
+                            </div>
+                            <button
+                                className="mt-3 p-3 hover:bg-[#ccb9b9] hover:text-black border-2 border-spacing-2"
+                                onClick={() => handleViewDetails(post.id)}
+                            >
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 

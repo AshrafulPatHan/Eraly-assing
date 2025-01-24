@@ -23,7 +23,7 @@ const Navbar = () => {
 
     return (
         <nav className="sticky top-0 z-50">
-            <div style={{backgroundColor:"#FFFFFF80",}}>
+            <div >
                 <div className="flex flex-row items-center justify-between mx-[5vw] mb-16 pt-3">
                     {/* Logo */}
                     <div className="flex flex-row items-center">
@@ -37,10 +37,10 @@ const Navbar = () => {
                         </h4>
                     </div>
                     {/* desktop /tav vu */}
-                    <div className="hidden lg:flex lg:flex-row items-center text-xl font-light gap-5">
-                        <Link href="/">Home</Link>
-                        <Link href="/">About As</Link>
-                        <Link href="/profile">Profile</Link>
+                    <div className="hidden lg:flex lg:flex-row items-center text-green-500 text-xl font-light gap-5">
+                        <Link className="hover:text-blue-500 hover:bg-green-400 p-3  " href="/">Home</Link>
+                        <Link className="hover:text-blue-500 hover:bg-green-400 p-3  " href="/">About As</Link>
+                        <Link className="hover:text-blue-500 hover:bg-green-400 p-3  " href="/profile">Profile</Link>
                         <div>
                             {user ? (
                                 <div className="flex flex-row items-center gap-1 md:gap-2">

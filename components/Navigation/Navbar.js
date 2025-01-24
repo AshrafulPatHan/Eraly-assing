@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Logo from "@/public/Group 5.svg";
-import { useAuth } from "../context/AuthContext";
-import { auth } from "../firebase/config"; 
+import { useAuth } from "@/components/context/AuthContext";
+import { auth } from "../Auth/Firebase/Config"; 
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -37,7 +37,7 @@ const Navbar = () => {
                         </h4>
                     </div>
                     {/* desktop /tav vu */}
-                    <div className="hidden lg:flex lg:flex-row items-center text-xl font-semibold gap-5">
+                    <div className="hidden lg:flex lg:flex-row items-center text-xl font-light gap-5">
                         <Link href="/">Home</Link>
                         <Link href="/">About Me</Link>
                         <Link href="/">Contact</Link>

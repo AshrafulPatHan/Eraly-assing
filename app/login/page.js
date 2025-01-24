@@ -3,9 +3,9 @@ import { useRef, useState } from "react";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Footer from "../Component/Footer";
-import Navbar from "../Component/Navbar";
-import { auth } from "../firebase/config";
+import Footer from "@/components/Navigation/Footer";
+import Navbar from "@/components/Navigation/Navbar";
+import { auth } from "@/components/Auth/Firebase/Config";
 import Image from "next/image";
 import { FaEye } from "react-icons/fa";
 import { FaEyeLowVision } from 'react-icons/fa6';
@@ -71,7 +71,7 @@ export default function LoginPage() {
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
-            <div>
+            <div className="flex flex-col items-center">
                 {/* <div><Image src="" alt="Img" /></div> */}
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <form onSubmit={handleSubmit} className="card-body">
